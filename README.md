@@ -14,7 +14,7 @@ This repository contains MATLAB scripts for modeling ideal fluid flows using pot
 To use the scripts, you need to download or clone this repository. If you have a ZIP file, extract it to a location on your computer. If using Git, open MATLAB, navigate to the appropriate folder, and run:
 
 ```matlab
-!git clone <https://github.com/aerxstxck/Modelling-Flows-with-MATLAB>
+!git clone https://github.com/aerxstxck/Modelling-Flows-with-MATLAB
 ```
 
 Open MATLAB (v2019Ra+) and set the folder containing the scripts as your working directory.
