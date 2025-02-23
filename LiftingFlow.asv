@@ -1,0 +1,29 @@
+clc; clear; close all;
+
+[x, y] = meshgrid(linspace(-5, 5, 100));
+
+U = 5; alpha = 0; % Uniform flow parameters
+K = 5; % Doublet strength (for the cylinder)
+Gamma = 50; 
+xc = 0; yc = 0; % Cylinder center
+
+% Compute potential and stream functions from functions
+[phi_uniform, psi_uniform] = UniformFlow(x, y, U, alpha);
+[phi_doublet, psi_doublet] = Doublet(x, y, K, xc, yc);
+[phi_vortex, psi_vortex] = Vortex(x, y, Gamma, xc, yc);
+
+% Superposition to get lifting flow
+phi_total = phi_uniform + phi_doublet + phi_vortex;
+psi_total = psi_uniform + psi_doublet + psi_vortex;
+
+% Plot streamlines (?) and equipotential lines (?)
+figure;
+hold on;
+contour(x, y, psi_total, 50, 'b');  
+%contour(x, y, phi_total, 50, 'r');  
+plot(xc, yc, 'ko', 'MarkerFaceColor', 'k', 'MarkerSize', 8);
+axis equal;
+xlabel('X'); ylabel('Y');
+title('Lifting Flow Over a Cylinder');
+legend('Streamlines (\psi)', 'Cylinder Center');
+hold off;
